@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional</title>
+    <style>
+        /* --- 1. BOX SIZING & BOX MODEL --- */
+        /* Mengatur agar padding dan border masuk dalam perhitungan lebar elemen */
+        * {
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; /* Menghapus margin default browser */
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        /* --- 2. DIMENSION & DISPLAY --- */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%; /* Dimension */
+            display: block; /* Display standard */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto; /* Margin auto untuk tengah */
+            padding: 0 20px;
+        }
+
+        /* --- 3. FLOAT & CLEARFIX (Untuk Layout) --- */
+        /* Membungkus elemen yang di-float agar parent tidak collapse */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* --- 4. MULTI-COLUMN LAYOUT DENGAN FLOAT --- */
+        .col-4 {
+            float: left;
+            width: 33.33%; /* Membagi layar menjadi 3 kolom */
+            padding: 15px;
+        }
+
+        .col-8 {
+            float: left;
+            width: 66.66%;
+            padding: 15px;
+        }
+
+        /* --- 5. BORDER & MARGIN --- */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px; /* Jarak antar kartu */
+            border: 1px solid #ddd; /* Border tipis */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* --- 6. IMAGE GALLERY RESPONSIVE --- */
+        .gallery-item {
+            float: left;
+            width: 25%; /* 4 gambar per baris di desktop */
+            padding: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%; /* Agar gambar responsif mengikuti wadah */
+            height: auto;
+            border-radius: 5px;
+            display: block; /* Menghapus gap di bawah gambar inline */
+            border: 3px solid white; 
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img:hover {
+            border-color: #333; /* Efek hover pada border */
+        }
+
+        /* --- 7. OVERFLOW --- */
+        .scroll-box {
+            height: 150px;
+            width: 100%;
+            border: 1px dashed #999;
+            padding: 10px;
+            overflow: auto; /* Scrollbar muncul jika konten terlalu panjang */
+            background-color: #fff;
+        }
+
+        /* --- CSS SPECIFIC: MULTI-COLUMN TEXT --- */
+        /* Ini fitur khusus CSS3 untuk teks koran, berbeda dengan layout kolom */
+        .text-columns {
+            column-count: 2;
+            column-gap: 40px;
+            column-rule: 1px solid #ccc;
+            text-align: justify;
+        }
+
+        /* --- RESPONSIVE DESIGN (Media Queries) --- */
+        @media screen and (max-width: 800px) {
+            .col-4, .col-8, .gallery-item {
+                width: 50%; /* Tablet: menjadi 2 kolom */
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .col-4, .col-8, .gallery-item {
+                width: 100%; /* Mobile: menjadi 1 kolom (stack) */
+                float: none; /* Hilangkan float agar menumpuk normal */
+            }
+            
+            .text-columns {
+                column-count: 1; /* Teks kembali satu kolom di HP */
+            }
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            clear: both; /* Pastikan footer selalu di bawah elemen float */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Portofolio Saya</h1>
+        <p>Web Developer & Designer</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <h3>Profil</h3>
+                    <img src="./asset/profile1.png" alt="Foto Profil" style="width:100%; border-radius:50%; margin-bottom:15px;">
+                    <p>Halo! Saya adalah pengembang web yang suka membuat tampilan bersih dan responsif.</p>
+                </div>
+            </div>
+            
+            <div class="col-8">
+                <div class="card">
+                    <h3>Tentang Saya (Multi-column Text)</h3>
+                    <div class="text-columns">
+                        <p>Saya memiliki pengalaman dalam membangun website menggunakan HTML dan CSS murni. Saya sangat memperhatikan detail layout seperti box-model, margin, dan padding untuk memastikan kerapian.</p>
+                        <p>Selain teknis, saya juga memahami prinsip desain visual. Tujuan saya adalah membuat website yang tidak hanya berfungsi dengan baik tetapi juga terlihat estetik di berbagai perangkat.</p>
+                    </div>
+
+                    <h3>Keahlian (Overflow Demo)</h3>
+                    <p>Box di bawah ini memiliki tinggi tetap dan menggunakan <code>overflow: auto</code>.</p>
+                    <div class="scroll-box">
+                        <ul>
+                            <li>HTML5 Semantic</li>
+                            <li>CSS3 (Float, Flexbox, Grid)</li>
+                            <li>Responsive Design</li>
+                            <li>JavaScript Basic</li>
+                            <li>Git & Github</li>
+                            <li>UI/UX Design</li>
+                            <li>SEO Optimization</li>
+                            <li>Performance Tuning</li>
+                            <li>Cross-browser Compatibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ccc;">
+
+        <h2 style="text-align: center;">Galeri Proyek</h2>
+        <div class="row">
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x300/333/fff?text=Project+1" alt="Project 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x300/555/fff?text=Project+2" alt="Project 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x300/777/fff?text=Project+3" alt="Project 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x300/999/fff?text=Project+4" alt="Project 4">
+            </div>
+             <div class="gallery-item">
+                <img src="https://placehold.co/400x300/333/fff?text=Project+5" alt="Project 5">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x300/555/fff?text=Project+6" alt="Project 6">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x300/777/fff?text=Project+7" alt="Project 7">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x300/999/fff?text=Project+8" alt="Project 8">
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Portofolio Saya. Dibuat dengan CSS Dasar.</p>
+    </footer>
+
+</body>
+</html>
